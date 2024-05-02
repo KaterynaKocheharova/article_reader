@@ -1,5 +1,7 @@
 import { useState } from "react";
-import "swiper/css";
+import Progress from "./Progress/Porogress";
+import Controls from "./Controls/Controls";
+import Artcile from "./Article/Article";
 
 import articles from "../articles.json";
 
@@ -21,23 +23,15 @@ export default function Reader() {
   return (
     <div>
       <div>
-        <div>
-          <button onClick={handlePrev} disabled={isFirst}>
-            Previus
-          </button>
-          <button onClick={handleNext} disabled={isLast}>
-            Next
-          </button>
-        </div>
-        <p>
-          Progress: {articleIndex + 1} / {articles.length};
-        </p>
+        <Controls
+          onNext={handleNext}
+          onPrev={handlePrev}
+          isArticleFirst={isFirst}
+          isArticleLast={isLast}
+        />
+        <Progress current={articleIndex + 1} total={articles.length} />
       </div>
-
-      <article>
-        <h2>{currentArticle.title}</h2>
-        <p>{currentArticle.text}</p>
-      </article>
+      <Artcile articleData={currentArticle} />
     </div>
   );
 }

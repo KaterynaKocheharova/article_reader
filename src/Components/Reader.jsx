@@ -7,6 +7,7 @@ import articles from "../articles.json";
 
 export default function Reader() {
   const [articleIndex, setArticleIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   const currentArticle = articles[articleIndex];
   const isLast = articleIndex === articles.length - 1;
@@ -20,6 +21,10 @@ export default function Reader() {
     setArticleIndex(articleIndex - 1);
   }
 
+  function updateVisibility() {
+    setIsVisible(!isVisible);
+  }
+
   return (
     <div>
       <div>
@@ -31,7 +36,10 @@ export default function Reader() {
         />
         <Progress current={articleIndex + 1} total={articles.length} />
       </div>
-      <Artcile articleData={currentArticle} />
+      {isVisible && <Artcile articleData={currentArticle} />}
+      <button onClick={updateVisibility}>
+        {isVisible ? "Close article" : "Open artcile"}
+      </button>
     </div>
   );
 }

@@ -1,25 +1,43 @@
 import { useState } from "react";
+import "swiper/css";
+
 import articles from "../articles.json";
 
 export default function Reader() {
-  const [index, setIndex] = useState(0);
+  const [articleIndex, setArticleIndex] = useState(0);
 
-  function addIndex() {
-    setIndex(index + 1);
+  const currentArticle = articles[articleIndex];
+  const isLast = articleIndex === articles.length - 1;
+  const isFirst = articleIndex === 0;
+
+  function handleNext() {
+    setArticleIndex(articleIndex + 1);
   }
 
-  function subtractIndex() {
-    setIndex(index - 1);
+  function handlePrev() {
+    setArticleIndex(articleIndex - 1);
   }
 
   return (
     <div>
-      <button onClick={subtractIndex}>Previus</button>
-      <button onClick={addIndex}>Next</button>
-      <p>Progress:{index + 1}/10</p>
       <div>
-        <p>{articles[index] && articles[index].text}</p>
+        <div>
+          <button onClick={handlePrev} disabled={isFirst}>
+            Previus
+          </button>
+          <button onClick={handleNext} disabled={isLast}>
+            Next
+          </button>
+        </div>
+        <p>
+          Progress: {articleIndex + 1} / {articles.length};
+        </p>
       </div>
+
+      <article>
+        <h2>{currentArticle.title}</h2>
+        <p>{currentArticle.text}</p>
+      </article>
     </div>
   );
 }

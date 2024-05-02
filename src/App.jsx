@@ -1,6 +1,12 @@
-import "./App.css";
+import css from "./App.module.css";
 import Reader from "./Components/Reader";
 
 export default function App() {
-  return <Reader />;
+  return (
+    <section className={css.section}>
+      <div className={css.container}>
+        <Reader />
+      </div>
+    </section>
+  );
 }

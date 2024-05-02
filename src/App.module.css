@@ -1,0 +1,13 @@
+.section {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.container {
+  row-gap: 3rem;
+  max-width: 90%;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -2,10 +2,15 @@
   --black-color: #000000;
   --white-color: #ffffff;
   --red-color: #ff0000;
+  --big-button-padding: 1rem;
+  --big-button-width: 7rem;
+  --small-border-radius: 5px;
+  --big-mb: 5rem;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: var(--black-color);
 }
 
 h1,

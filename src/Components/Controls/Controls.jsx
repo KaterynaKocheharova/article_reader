@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import css from "./Controls.module.css";
+
 export default function Controls({
   onNext,
   onPrev,
@@ -5,11 +8,19 @@ export default function Controls({
   isArticleLast,
 }) {
   return (
-    <div>
-      <button onClick={onPrev} disabled={isArticleFirst}>
+    <div className={css["controls-container"]}>
+      <button
+        className={clsx(css["controls-button"], css["button-prev"])}
+        onClick={onPrev}
+        disabled={isArticleFirst}
+      >
         Previus
       </button>
-      <button onClick={onNext} disabled={isArticleLast}>
+      <button
+        className={clsx(css["controls-button"], css["button-next"])}
+        onClick={onNext}
+        disabled={isArticleLast}
+      >
         Next
       </button>
     </div>

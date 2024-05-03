@@ -1,0 +1,30 @@
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.controls-button {
+  width: var(--big-button-width);
+  padding: var(--big-button-padding);
+  border: 0;
+  border-radius: var(--small-border-radius);
+  cursor: pointer;
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  margin-bottom: var(--big-mb);
+}
+
+.controls-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.button-prev {
+  background-color: var(--black-color);
+}
+
+.button-next {
+  background-color: var(--red-color);
+}

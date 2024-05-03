@@ -5,9 +5,15 @@
   --big-button-padding: 1rem;
   --big-button-width: 7rem;
   --small-border-radius: 5px;
-  --big-mb: 5rem;
+  --big-mb: 1.5rem;
   --big-font: 24px;
   --medium-font: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --big-mb: 5rem;
+  }
 }
 
 body {

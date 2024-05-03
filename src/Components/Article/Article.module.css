@@ -2,6 +2,7 @@
   text-align: center;
   color: var(--white-color);
   margin-bottom: var(--big-mb);
+  line-height: 1.7;
 }
 
 .article-text {

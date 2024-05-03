@@ -1,6 +1,6 @@
 import css from "./Article.module.css";
 
-export default function Artcile({ articleData: { topic, text } }) {
+export default function Article({ articleData: { topic, text } }) {
   return (
     <article>
       <h2 className={css["article-title"]}>{topic}</h2>

@@ -1,5 +1,5 @@
 import css from "./App.module.css";
-import Reader from "./Components/Reader";
+import Reader from "./Components/Reader/Reader";
 
 export default function App() {
   return (

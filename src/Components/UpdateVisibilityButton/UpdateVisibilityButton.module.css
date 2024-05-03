@@ -1,0 +1,16 @@
+.update-visibility-button {
+  padding: var(--big-button-padding);
+  border: 0;
+  border-radius: var(--small-border-radius);
+  cursor: pointer;
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+}
+
+.make-visible-button {
+  background-color: var(--red-color);
+}
+
+.make-invisible-button {
+  background-color: var(--black-color);
+}

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Progress from "./Progress/Porogress";
-import Controls from "./Controls/Controls";
-import Artcile from "./Article/Article";
+import Progress from "../Progress/Porogress";
+import Controls from "../Controls/Controls";
+import Article from "../Article/Article";
+import UpdateVisibilityButton from "../UpdateVisibilityButton/UpdateVisibilityButton";
 
-import articles from "../articles.json";
+import articles from "../../articles.json";
 
 export default function Reader() {
   const [articleIndex, setArticleIndex] = useState(0);
@@ -36,10 +37,11 @@ export default function Reader() {
         />
         <Progress current={articleIndex + 1} total={articles.length} />
       </div>
-      {isVisible && <Artcile articleData={currentArticle} />}
-      <button onClick={updateVisibility}>
-        {isVisible ? "Close article" : "Open artcile"}
-      </button>
+      {isVisible && <Article articleData={currentArticle} />}
+      <UpdateVisibilityButton
+        onUpdateVisibility={updateVisibility}
+        isVisible={isVisible}
+      />
     </div>
   );
 }

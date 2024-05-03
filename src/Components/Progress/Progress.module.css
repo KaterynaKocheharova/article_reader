@@ -1,0 +1,5 @@
+.progress-text {
+  text-align: center;
+  color: var(--red-color);
+  margin-bottom: var(--big-mb);
+}

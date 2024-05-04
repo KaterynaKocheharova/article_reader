@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Progress from "../Progress/Porogress";
 import Controls from "../Controls/Controls";
 import Article from "../Article/Article";
@@ -6,13 +6,22 @@ import UpdateVisibilityButton from "../UpdateVisibilityButton/UpdateVisibilityBu
 
 import articles from "../../articles.json";
 
-export default function Reader() {
-  const [articleIndex, setArticleIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+function getInitialIndexFromLS() {
+  const currentData = localStorage.getItem("currentIndex");
+  if (currentData !== null) {
+    return JSON.parse(currentData);
+  } else {
+    return 0;
+  }
+}
 
-  const currentArticle = articles[articleIndex];
-  const isLast = articleIndex === articles.length - 1;
-  const isFirst = articleIndex === 0;
+function setIndexToLS(index) {
+  localStorage.setItem("currentIndex", JSON.stringify(index));
+}
+
+export default function Reader() {
+  const [articleIndex, setArticleIndex] = useState(getInitialIndexFromLS);
+  const [isVisible, setIsVisible] = useState(true);
 
   function handleNext() {
     setArticleIndex(articleIndex + 1);
@@ -22,9 +31,17 @@ export default function Reader() {
     setArticleIndex(articleIndex - 1);
   }
 
+  useEffect(() => {
+    setIndexToLS(articleIndex);
+  }, [articleIndex]);
+
   function updateVisibility() {
     setIsVisible(!isVisible);
   }
+
+  const currentArticle = articles[articleIndex];
+  const isLast = articleIndex === articles.length - 1;
+  const isFirst = articleIndex === 0;
 
   return (
     <div>
